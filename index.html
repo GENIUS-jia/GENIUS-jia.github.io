@@ -152,6 +152,150 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-快速排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>​    public static void main(String[] args) {</p>
+<p>​        int[] arr = {5, 1, 7, 3, 1, 6, 9, 4};</p>
+<p>​        //long l = System.currentTimeMillis();</p>
+<p>​        //System.out.println(l);</p>
+<p>​        quickSort(arr, 0, arr.length - 1);</p>
+<p>​        //long l1 = System.currentTimeMillis();</p>
+<p>​        for (int i : arr) {</p>
+<p>​            System.out.print(i + “\t”);</p>
+<p>​        }</p>
+<p>​    }</p>
+<p>​    /**</p>
+<p>​     * @param arr        待排序列</p>
+<p>​     * @param leftIndex  待排序列起始位置</p>
+<p>​     * @param rightIndex 待排序列结束位置</p>
+<p>​     */</p>
+<p>​    private static void quickSort(int[] arr, int leftIndex, int rightIndex) {</p>
+<p>​        if (leftIndex &gt;= rightIndex) {</p>
+<p>​            return;</p>
+<p>​        }</p>
+<p>​        int left = leftIndex;</p>
+<p>​        int right = rightIndex;</p>
+<p>​        //待排序的第一个元素作为基准值</p>
+<p>​        int key = arr[left];</p>
+<p>​        //从左右两边交替扫描，直到left = right</p>
+<p>​        while (left &lt; right) {</p>
+<p>​            while (right &gt; left &amp;&amp; arr[right] &gt;= key) {</p>
+<p>​                //从右往左扫描，找到第一个比基准值小的元素</p>
+<p>​                right–;</p>
+<p>​            }</p>
+<p>​            //找到这种元素将arr[right]放入arr[left]中</p>
+<p>​            arr[left] = arr[right];</p>
+<p>​            while (left &lt; right &amp;&amp; arr[left] &lt;= key) {</p>
+<p>​                //从左往右扫描，找到第一个比基准值大的元素</p>
+<p>​                left++;</p>
+<p>​            }</p>
+<p>​            //找到这种元素将arr[left]放入arr[right]中</p>
+<p>​            arr[right] = arr[left];</p>
+<p>​        }</p>
+<p>​        //基准值归位</p>
+<p>​        arr[left] = key;</p>
+<p>​        //对基准值左边的元素进行递归排序</p>
+<p>​        quickSort(arr, leftIndex, left - 1);</p>
+<p>​        //对基准值右边的元素进行递归排序。</p>
+<p>​        quickSort(arr, right + 1, rightIndex);</p>
+<p>​    }</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/12/05/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-#列表推导式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#推导式</p>
+<pre><code> -列表推导式</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">list1 = [x * x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">list</span>:</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
+
+<p>​    -字典推导式</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">dic1 = &#123;<span class="string">&quot;a&quot;</span>: <span class="string">&quot;a&quot;</span>, <span class="string">&quot;2&quot;</span>: <span class="string">&quot;b&quot;</span>, <span class="string">&quot;3&quot;</span>: <span class="string">&quot;c&quot;</span>, <span class="string">&quot;4&quot;</span>: <span class="string">&quot;d&quot;</span>, <span class="string">&quot;5&quot;</span>: <span class="string">&quot;e&quot;</span>&#125;</span><br><span class="line">d1 = &#123;key: value <span class="keyword">for</span> key, value <span class="keyword">in</span> dic1.items() <span class="keyword">if</span> key.islower()&#125;</span><br><span class="line">print(d1)</span><br><span class="line">d2 = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> dic1.items():</span><br><span class="line">    <span class="keyword">if</span> key[<span class="number">0</span>].islower():</span><br><span class="line">        d2[key[<span class="number">0</span>]]=dic1.get(key[<span class="number">0</span>])</span><br><span class="line">print(d2)</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/10/27/#%E5%88%97%E8%A1%A8%E6%8E%A8%E5%AF%BC%E5%BC%8F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
